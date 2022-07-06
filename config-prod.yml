@@ -1,8 +1,0 @@
-# 服务器端口
-system:
-  part: :8202
-  stauts: debug
-# log存放目录
-logger:
-  path: /app/logs
-  name: r0Website_server.logs
