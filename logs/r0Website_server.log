@@ -824,3 +824,10 @@ time="2022-07-05T14:13:01+08:00" level=info msg=InitUtils
 <GLOBAL:2022-07-06 16:08:24> : [INFO] - [ArticleBaseSearch -> Mongo: 
 	[ [{Key:$text Value:[{Key:$search Value:c++}]}] | [{Key:score Value:[{Key:$meta Value:textScore}]}] | [{Key:score Value:[{Key:$meta Value:textScore}]}] ]]
 [GIN   :2022-07-06 16:08:24] : [INFO] - [ 200 |      6.9952ms |       127.0.0.1 | GET | /api/base/article ]
+<GLOBAL:2022-07-06 22:18:15> : [INFO] - [=== Connected MongoDB:r0website ===]
+<GLOBAL:2022-07-06 22:18:15> : [INFO] - [InitUtils]
+[GIN   :2022-07-06 22:18:26] : [INFO] - [ 200 |     79.6093ms |       127.0.0.1 | POST | /api/base/login ]
+[GIN   :2022-07-06 22:18:40] : [INFO] - [ 200 |      4.1975ms |       127.0.0.1 | POST | /api/admin/article ]
+[GIN   :2022-07-06 22:18:46] : [INFO] - [ 200 |      2.5651ms |       127.0.0.1 | POST | /api/admin/article/qwq ]
+<GLOBAL:2022-07-06 22:18:47> : [ERROR] - [write exception: write errors: [E11000 duplicate key error collection: r0website.articles index: _id_ dup key: { _id: ObjectId('000000000000000000717771') }]]
+[GIN   :2022-07-06 22:18:47] : [INFO] - [ 400 |      3.0328ms |       127.0.0.1 | POST | /api/admin/article/qwq ]
