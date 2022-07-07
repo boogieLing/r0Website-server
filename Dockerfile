@@ -1,10 +1,14 @@
 FROM ubuntu:18.04
 
-RUN apt-get update\
-    && apt-get install wget
+RUN sed -i "s@/archive.ubuntu.com/@/mirrors.tuna.tsinghua.edu.cn/@g" /etc/apt/sources.list \
+    && sed -i "s@/security.ubuntu.com/@/mirrors.ustc.edu.cn/@g" /etc/apt/sources.list\
+    && rm -Rf /var/lib/apt/lists/* \
+    && apt-get update --fix-missing -o Acquire::http::No-Cache=True\
+    && apt-get install --assume-yes apt-utils\
+    && apt-get install wget -y
 # 安装 golang1.17.11
 RUN set -x; wget https://golang.google.cn/dl/go1.17.11.linux-amd64.tar.gz\
-    &&  tar zxvf go1.15.15.linux-amd64.tar.gz -C ./local/\
+    &&  tar zxvf go1.15.15.linux-amd64.tar.gz -C /usr/local/\
     &&  echo "export GOROOT=/home/root/local/go" >> /etc/profile\
     &&  echo "export GOBIN=$GOROOT/bin" >> /etc/profile\
     &&  echo "export PATH=$GOROOT/bin:$PATH" >> /etc/profile\
