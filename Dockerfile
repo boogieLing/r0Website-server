@@ -12,11 +12,11 @@ RUN set -x; wget https://golang.google.cn/dl/go1.17.11.linux-amd64.tar.gz\
     &&  echo "export GOROOT=/home/root/local/go" >> /etc/profile\
     &&  echo "export GOBIN=$GOROOT/bin" >> /etc/profile\
     &&  echo "export PATH=$GOROOT/bin:$PATH" >> /etc/profile\
-    &&  source /etc/profile\
+    &&  /bin/bash -c "source /etc/profile"\
     &&  echo "export GOROOT=/home/root/local/go" >> ~/.bashrc\
     &&  echo "export GOBIN=$GOROOT/bin" >> ~/.bashrc\
     &&  echo "export PATH=$GOROOT/bin:$PATH" >> ~/.bashrc\
-    &&  source ~/.bashrc\
+    &&  /bin/bash -c "source ~/.bashrc"\
     &&  go version
 COPY ./mongod.conf /usr/local/mongodb
 # 安装 mongo
@@ -26,7 +26,7 @@ RUN apt-get install libcurl4 openssl\
     && mv /usr/local/mongodb-linux-x86_64-ubuntu1804-5.0.9/ /usr/local/mongodb \
     && chown -R root /usr/local/mongodb \
     && echo "export PATH=$PATH:/usr/local/mongodb/bin" >> ~/.bashrc \
-    && source ~/.bashrc \
+    && /bin/bash -c "source ~/.bashrc"\
     && mkdir -p /usr/local/mongodb/data/db \
     && mkdir -p /usr/local/mongodb/logs \
     && touch /usr/local/mongodb/logs/mongod.log\
