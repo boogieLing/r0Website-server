@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="30bc98af-a820-4715-ab6d-2d8680a5713e" name="vm-ubuntu">
-        <fileTransfer rootFolder="/home/ling" accessType="SFTP" host="192.168.84.137" port="22" sshConfigId="c1944d1a-036b-4d87-9720-7df83c7fece4" sshConfig="ling@192.168.84.137:22 password">
+      <webServer id="7e1baa77-66c2-4708-8c43-f8cb8c5fdc6b" name="dev-cloud">
+        <fileTransfer accessType="SFTP" host="9.135.33.155" port="36000" sshConfigId="497dabb0-f031-442b-927e-9fb2e3ee3ad8" sshConfig="root@9.135.33.155:36000 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
